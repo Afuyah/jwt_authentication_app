@@ -1,0 +1,149 @@
+{% extends "home/base.html" %}
+
+{% block title %}Profile - AuthSystem{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>User Profile</h1>
+            <a href="#" class="btn btn-outline-primary">Edit Profile</a>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <div class="avatar-placeholder mb-3">
+                            <div class="rounded-circle bg-secondary text-white d-inline-flex align-items-center justify-content-center" 
+                                 style="width: 100px; height: 100px; font-size: 2.5rem;">
+                                {{ user.first_name[0] }}{{ user.last_name[0] }}
+                            </div>
+                        </div>
+                        <h4>{{ user.first_name }} {{ user.last_name }}</h4>
+                        <p class="text-muted">@{{ user.username }}</p>
+                    </div>
+                </div>
+
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <h5>Quick Actions</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-grid gap-2">
+                            <a href="#" class="btn btn-outline-primary">Change Password</a>
+                            <a href="#" class="btn btn-outline-secondary">Security Settings</a>
+                            <a href="#" class="btn btn-outline-info">Connected Devices</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Personal Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <strong>Username:</strong>
+                            </div>
+                            <div class="col-sm-9">
+                                {{ user.username }}
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <strong>Email:</strong>
+                            </div>
+                            <div class="col-sm-9">
+                                {{ user.email }}
+                                <span class="badge bg-success ms-2">Verified</span>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <strong>Phone:</strong>
+                            </div>
+                            <div class="col-sm-9">
+                                {{ user.phone or 'Not provided' }}
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <strong>Full Name:</strong>
+                            </div>
+                            <div class="col-sm-9">
+                                {{ user.first_name }} {{ user.last_name }}
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <strong>Member Since:</strong>
+                            </div>
+                            <div class="col-sm-9">
+                                {{ user.created_at.strftime('%B %d, %Y') }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <strong>Last Login:</strong>
+                            </div>
+                            <div class="col-sm-9">
+                                {{ user.last_login.strftime('%B %d, %Y at %H:%M') if user.last_login else 'Never' }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <h5>Account Status</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <strong>Status:</strong>
+                                <span class="badge bg-success">Active</span>
+                            </div>
+                            <div class="col-sm-6">
+                                <strong>Two-Factor Auth:</strong>
+                                <span class="badge bg-warning">Disabled</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <h5>Roles & Permissions</h5>
+                    </div>
+                    <div class="card-body">
+                        <h6>Roles:</h6>
+                        <div class="mb-3">
+                            {% for role in user.roles %}
+                                <span class="badge bg-primary me-1">{{ role.name }}</span>
+                            {% else %}
+                                <span class="text-muted">No roles assigned</span>
+                            {% endfor %}
+                        </div>
+                        
+                        <h6>Permissions:</h6>
+                        <div>
+                            {% set permissions = user.get_all_permissions() %}
+                            {% if permissions %}
+                                {% for permission in permissions %}
+                                    <span class="badge bg-info me-1 mb-1">{{ permission }}</span>
+                                {% endfor %}
+                            {% else %}
+                                <span class="text-muted">No permissions assigned</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

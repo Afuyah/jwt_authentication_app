@@ -1,0 +1,101 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 mx-auto text-center">
+        <div class="hero-section">
+            <h1 class="display-4 mb-4">Welcome to AuthSystem</h1>
+            <p class="lead mb-4">A secure, scalable authentication system built with Flask and modern web technologies.</p>
+            
+            <div class="row mb-5">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <h3>🔐 Secure</h3>
+                        <p>JWT-based authentication with industry-standard security practices.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <h3>⚡ Fast</h3>
+                        <p>Optimized for performance with minimal overhead and quick response times.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <h3>🔧 Flexible</h3>
+                        <p>Modular architecture that can be easily extended for any project.</p>
+                    </div>
+                </div>
+            </div>
+
+            {% if not request.cookies.get('access_token') %}
+            <div class="cta-buttons">
+                <a href="{{ url_for('auth.register') }}" class="btn btn-primary btn-lg me-3">Get Started</a>
+                <a href="{{ url_for('auth.login') }}" class="btn btn-outline-primary btn-lg">Sign In</a>
+            </div>
+            {% else %}
+            <div class="cta-buttons">
+                <a href="{{ url_for('home.dashboard') }}" class="btn btn-primary btn-lg">Go to Dashboard</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-6">
+        <h2>Features</h2>
+        <ul class="list-group">
+            <li class="list-group-item">User registration and authentication</li>
+            <li class="list-group-item">Role-based access control</li>
+            <li class="list-group-item">Permission management</li>
+            <li class="list-group-item">JWT token support</li>
+            <li class="list-group-item">RESTful API endpoints</li>
+            <li class="list-group-item">Secure password hashing</li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <h2>Technology Stack</h2>
+        <ul class="list-group">
+            <li class="list-group-item">Flask - Web framework</li>
+            <li class="list-group-item">SQLAlchemy - ORM</li>
+            <li class="list-group-item">JWT Extended - Authentication</li>
+            <li class="list-group-item">Bcrypt - Password hashing</li>
+            <li class="list-group-item">Bootstrap 5 - UI framework</li>
+            <li class="list-group-item">WTForms - Form validation</li>
+        </ul>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h3>Getting Started</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="text-center">
+                            <h4>1. Register</h4>
+                            <p>Create your account with email, username, and secure password.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-center">
+                            <h4>2. Authenticate</h4>
+                            <p>Login to access your personalized dashboard and features.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-center">
+                            <h4>3. Explore</h4>
+                            <p>Discover all the features and capabilities of our platform.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

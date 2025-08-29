@@ -1,0 +1,124 @@
+{% extends "home/base.html" %}
+
+{% block title %}About - AuthSystem{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <div class="text-center mb-5">
+            <h1 class="display-4">About AuthSystem</h1>
+            <p class="lead">A modern, secure authentication system built for developers</p>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3 class="card-title">What is AuthSystem?</h3>
+                <p class="card-text">
+                    AuthSystem is a comprehensive authentication and authorization solution built with Flask. 
+                    It provides a robust foundation for web applications requiring secure user management, 
+                    role-based access control, and modern authentication practices.
+                </p>
+                <p class="card-text">
+                    Whether you're building a small personal project or a large enterprise application, 
+                    AuthSystem offers the security and flexibility you need without compromising on performance.
+                </p>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h4 class="card-title">🔐 Security First</h4>
+                        <ul class="list-unstyled">
+                            <li>✓ JWT-based authentication</li>
+                            <li>✓ Password hashing with bcrypt</li>
+                            <li>✓ CSRF protection</li>
+                            <li>✓ Rate limiting</li>
+                            <li>✓ Secure cookie handling</li>
+                            <li>✓ Audit logging</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h4 class="card-title">⚡ Modern Features</h4>
+                        <ul class="list-unstyled">
+                            <li>✓ RESTful API endpoints</li>
+                            <li>✓ Role-based access control</li>
+                            <li>✓ Permission management</li>
+                            <li>✓ Session management</li>
+                            <li>✓ Email and phone support</li>
+                            <li>✓ Social login ready</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3 class="card-title">Technology Stack</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>Backend</h5>
+                        <ul>
+                            <li><strong>Flask</strong> - Lightweight web framework</li>
+                            <li><strong>SQLAlchemy</strong> - Database ORM</li>
+                            <li><strong>Flask-JWT-Extended</strong> - JWT authentication</li>
+                            <li><strong>Flask-Bcrypt</strong> - Password hashing</li>
+                            <li><strong>Flask-WTF</strong> - Form validation</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>Frontend & Other</h5>
+                        <ul>
+                            <li><strong>Bootstrap 5</strong> - CSS framework</li>
+                            <li><strong>Jinja2</strong> - Templating engine</li>
+                            <li><strong>Flask-Migrate</strong> - Database migrations</li>
+                            <li><strong>Flask-Limiter</strong> - Rate limiting</li>
+                            <li><strong>Flask-CORS</strong> - Cross-origin support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3 class="card-title">Getting Started</h3>
+                <p>To start using AuthSystem in your project:</p>
+                <ol>
+                    <li>Clone or download the AuthSystem repository</li>
+                    <li>Install the required dependencies</li>
+                    <li>Configure your database and environment variables</li>
+                    <li>Run the database migrations</li>
+                    <li>Start the development server</li>
+                </ol>
+                <p>Check the documentation for detailed installation and configuration instructions.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Contributing</h3>
+                <p>
+                    AuthSystem is open source and welcomes contributions from the community. 
+                    Whether you want to report a bug, suggest a feature, or submit a pull request, 
+                    we appreciate your help in making AuthSystem better.
+                </p>
+                <p>
+                    Please read our contributing guidelines before submitting any changes, and 
+                    make sure to follow our code of conduct.
+                </p>
+                <div class="text-center">
+                    <a href="#" class="btn btn-primary me-2">GitHub Repository</a>
+                    <a href="#" class="btn btn-outline-secondary">Documentation</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
